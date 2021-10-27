@@ -1,0 +1,101 @@
+/* Style for overall body of application */
+body,
+html {
+  padding-top: 40px;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+}
+
+/* Styling for a card stack container */
+.stack-block {
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+.stack-block:hover {
+  background-color: lightblue;
+}
+
+/* Styling to add a top margin to buttons */
+.btn {
+  margin-top: 2px;
+}
+
+/* Styling for the stack builder container */
+#builder_div {
+  padding: 20px;
+}
+
+/* Styling for the stacks list containers */
+.list-div {
+  display: flex;
+  overflow: scroll;
+}
+
+/* Styling for add card modal container */
+.add-card-container {
+  opacity: 0;
+  z-index: -1;
+  background-color: #bbb;
+  border-top: 2px solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  transition: 0.3s ease;
+}
+
+.add-card-container.show {
+  opacity: 1;
+  z-index: 2;
+}
+
+.add-card-container h3 {
+  margin: 10px 0;
+}
+
+.form-group.side label {
+  display: block;
+  margin: 20px 0 10px;
+}
+
+.form-group textarea {
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 12px;
+  min-width: 250px;
+  max-width: 100%;
+}
+
+/* Styling for the stack viewer container */
+#stack_viewer_div {
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+
+/* Styling of the list of cards container */
+.cards-list {
+  display: flex;
+}
+
+/* Styling for the stack info section of the viewer */
+#stack_viewer_info {
+  display: block;
+  justify-content: center;
+}
+
+/* Styling for the stack actions section of the viewer */
+#view_stack_actions {
+  display: block;
+  justify-content: center;
+}

@@ -1,0 +1,94 @@
+{% extends "stacks/base.html" %}
+{% load static %}
+
+{% block body %}
+
+{% comment %} Primary Index Container {% endcomment %}
+<div id="index_div" class="container-fluid">
+    {% if user.is_authenticated %}
+    <h1>Your Stacks
+        <button type="button" class="btn btn-primary" id="add_button">Add <i class="far fa-plus-square"></i></button>
+    </h1>
+    <div class="row" id="pers_stack_div"></div>
+    {% endif %}
+
+    <h1>Community Stacks</h1>
+    <div class="row" id="comm_stack_div"></div>
+</div>
+
+{% comment %} Primary card stack builder container {% endcomment %}
+<div id="builder_div" class="container">
+    <div id="builder_stack_info_div">
+    </div>
+    <hr>
+    <div id="builder_cards_div" class="row">
+    </div>
+</div>
+
+{% comment %} Stack viewer container {% endcomment %}
+<div id="stack_viewer_div" class="container-fluid">
+</div>
+
+{% comment %} Stack learning exercises container {% endcomment %}
+<div id="stack_learn_div" class="container-fluid">
+</div>
+
+
+{% comment %} A modal-like container for adding cards to a stack {% endcomment %}
+<div id="add_card_container" class="add-card-container">
+    <h1 id="add_card_heading">Add Card</h1>
+    <div class="form-group side">
+        <label for="edit_side_1">Side 1</label>
+        <textarea id="edit_side_1" placeholder="Side 1..."></textarea>
+    </div>
+    <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" name="side_1_direction" type="radio" id="edit_side_1_ltr" value="ltr"
+                checked>
+            <label class="form-check-label" for="edit_side_1_ltr">Left-to-Right</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" name="side_1_direction" type="radio" id="edit_side_1_rtl" value="rtl">
+            <label class="form-check-label" for="edit_side_1_rtl">Right-to-Left</label>
+        </div>
+    </div>
+
+    <div class="form-group side">
+        <label for="edit_side_2">Side 2</label>
+        <textarea id="edit_side_2" placeholder="Side 2..."></textarea>
+    </div>
+    <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" name="side_2_direction" type="radio" id="edit_side_2_ltr" value="ltr"
+                checked>
+            <label class="form-check-label" for="edit_side_2_ltr">Left-to-Right</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" name="side_2_direction" type="radio" id="edit_side_2_rtl" value="rtl">
+            <label class="form-check-label" for="edit_side_2_rtl">Right-to-Left</label>
+        </div>
+    </div>
+    <div class="form-group side">
+        <label for="edit_curator_note">Curator Note</label>
+        <textarea id="edit_curator_note" placeholder="Notes..."></textarea>
+    </div>
+    <div>
+        <button id="submit-edit-card" class="btn btn-primary">Submit</button>
+        <button id="cancel-edit-card" class="btn btn-secondary">Cancel</button>
+    </div>
+</div>
+
+
+
+<script>
+    let authenticated = false;
+    let authenticatedUsername = null;
+
+    if ('{{ user.is_authenticated }}' == 'True') {
+        authenticated = true;
+        authenticatedUsername = '{{user.username}}';
+        csrfToken = '{{ csrf_token }}'
+    }
+</script>
+<script type="module" src="{% static 'stacks/script.js' %}"></script>
+{% endblock %}

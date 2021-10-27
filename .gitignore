@@ -1,0 +1,12 @@
+# DJANGO #
+*.log
+*.pot
+*.pyt
+__pycache__
+db.sqlite3
+media
+
+# Environments
+.env
+.venv
+
